@@ -20,7 +20,7 @@
             overflow-x: hidden;
         }
 
-        /* ---------- NAVIGATION (Home, Furniture, About, Blog, Contact Us) ---------- */
+        /* ---------- NAVIGATION ---------- */
         .navv {
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -161,7 +161,7 @@
             100% { transform: translateY(0px); }
         }
 
-        /* ---------- FURNITURE SECTION – horizontal row (name, price, button) ---------- */
+        /* ---------- FURNITURE SECTION – FIXED LAYOUT ---------- */
         .scndhed {
             text-align: center;
             margin: 4rem 1rem 2rem;
@@ -208,7 +208,7 @@
             justify-content: center;
             background: #faf9f8;
             border-radius: 16px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             min-height: 180px;
             overflow: hidden;
         }
@@ -224,21 +224,22 @@
         .furniture-card:hover img {
             transform: scale(1.08);
         }
-        .product-details {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
+        /* New classes for the fixed layout */
         .product-name {
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #1e1e1e;
-            text-align: left;
-            flex: 1;
+            text-align: center;
+            margin: 0.5rem 0 0.8rem 0;
+            width: 100%;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            margin-top: 0.2rem;
         }
         .price {
             font-weight: 600;
@@ -261,8 +262,9 @@
         .buy-link:hover {
             background-color: #d35400;
         }
+        /* Removed .product-details */
 
-        /* ---------- BLOG SECTION – stacked text, BUTTONS LEFT-ALIGNED & SAME VERTICAL POSITION ---------- */
+        /* ---------- BLOG SECTION ---------- */
         .heading {
             text-align: center;
             margin: 3rem 0 1rem;
@@ -325,8 +327,8 @@
             white-space: nowrap;
             width: fit-content;
             font-size: 0.9rem;
-            align-self: flex-start;    /* left-aligned */
-            margin-top: auto;           /* pushes button to bottom */
+            align-self: flex-start;
+            margin-top: auto;
         }
         .uu3:hover, .uu6:hover, .uu9:hover {
             background-color: #d35400;
@@ -426,7 +428,7 @@
             background: #d35400;
         }
 
-        /* ---------- CONTACT SECTION (form + map row) ---------- */
+        /* ---------- CONTACT SECTION ---------- */
         .contact_section {
             max-width: 1200px;
             margin: 5rem auto;
@@ -656,7 +658,7 @@
             transform: translateY(-4px);
         }
 
-        /* ---------- RESPONSIVE (3→2→1 columns for furniture, blog remains stacked) ---------- */
+        /* ---------- RESPONSIVE ---------- */
         @media screen and (max-width: 900px) {
             .furniture-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -722,15 +724,6 @@
             .social_icons {
                 justify-content: center;
             }
-            .product-details {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .product-name {
-                text-align: center;
-                flex: 0 0 100%;
-                margin-bottom: 0.3rem;
-            }
         }
         @media screen and (max-width: 480px) {
             .hero-content .h2 {
@@ -787,7 +780,7 @@
         </div>
     </div>
 
-    <!-- Furniture Section – horizontal row -->
+    <!-- Furniture Section – FIXED: product name under image, then price left + buy now right -->
     <div class="scndhed">
         <h1>OUR FURNITURE</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, molestiae officiis possimus tempora eveniet nisi?</p>
@@ -795,48 +788,48 @@
     <div class="furniture-grid">
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f1.png" alt="Brown chair"></div>
-            <div class="product-details">
-                <span class="product-name">Brown chair design</span>
+            <div class="product-name">Brown chair design</div>
+            <div class="product-actions">
                 <span class="price">$100.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
         </div>
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f2.png" alt="Double bed"></div>
-            <div class="product-details">
-                <span class="product-name">DOUBLE BED DESIGN</span>
+            <div class="product-name">DOUBLE BED DESIGN</div>
+            <div class="product-actions">
                 <span class="price">$200.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
         </div>
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f3.png" alt="House chair"></div>
-            <div class="product-details">
-                <span class="product-name">HOUSE CHAIR DESIGN</span>
+            <div class="product-name">HOUSE CHAIR DESIGN</div>
+            <div class="product-actions">
                 <span class="price">$200.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
         </div>
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f4.png" alt="Brown table"></div>
-            <div class="product-details">
-                <span class="product-name">BROWN TABLE DESIGN</span>
+            <div class="product-name">BROWN TABLE DESIGN</div>
+            <div class="product-actions">
                 <span class="price">$100.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
         </div>
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f5.png" alt="Blue chair"></div>
-            <div class="product-details">
-                <span class="product-name">BLUE CHAIR DESIGN</span>
+            <div class="product-name">BLUE CHAIR DESIGN</div>
+            <div class="product-actions">
                 <span class="price">$200.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
         </div>
         <div class="furniture-card">
             <div class="img-wrapper"><img src="./images/f6.png" alt="Brown table 2"></div>
-            <div class="product-details">
-                <span class="product-name">BROWN TABLE DESIGN</span>
+            <div class="product-name">BROWN TABLE DESIGN</div>
+            <div class="product-actions">
                 <span class="price">$200.00</span>
                 <a href="#" class="buy-link">BUY NOW</a>
             </div>
@@ -855,7 +848,7 @@
         </div>
     </div>
 
-    <!-- Latest Blogs – buttons now left-aligned & same vertical position -->
+    <!-- Latest Blogs -->
     <div class="heading">
         <h2>latest blogs</h2>
     </div>
@@ -986,7 +979,7 @@
         document.getElementById('aboutBtn')?.addEventListener('click', () => document.querySelector('.About')?.scrollIntoView({ behavior: 'smooth' }));
         document.getElementById('aboutMoreBtn')?.addEventListener('click', () => alert('We craft premium sustainable furniture since 2012.'));
 
-        // Blog read more (all buttons now left-aligned & same vertical position)
+        // Blog read more
         document.querySelectorAll('.uu3, .uu6, .uu9').forEach(btn => btn.addEventListener('click', () => alert('📖 Full blog article coming soon!')));
 
         // Testimonial carousel
