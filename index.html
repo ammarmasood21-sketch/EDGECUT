@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EDGECUT - Premium Furniture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ---------- NAVIGATION (Home, Furniture, About, Blog, Contact Us) ---------- */
+        .navv {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .tittle h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #2c2c2c;
+        }
+        .link {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .link a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        .link a:hover {
+            color: #e67e22;
+        }
+        .login a {
+            background-color: #e67e22;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .login a:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #2c2c2c;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .box {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background-color: #f8f9fa;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 2rem;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 260px;
+        }
+        .hero-content .h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+        }
+        .para {
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn, .btn1 {
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        .btn {
+            background-color: #e67e22;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(230,126,34,0.2);
+        }
+        .btn1 {
+            background-color: #2c3e66;
+            color: white;
+        }
+        .btn1:hover {
+            background-color: #1f2c44;
+            transform: translateY(-3px);
+        }
+        .hero-img {
+            flex: 1;
+            text-align: center;
+            min-width: 220px;
+        }
+        .img {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ---------- FURNITURE SECTION – horizontal row (name, price, button) ---------- */
+        .scndhed {
+            text-align: center;
+            margin: 4rem 1rem 2rem;
+        }
+        .scndhed h1 {
+            font-size: 2.2rem;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+        }
+        .scndhed p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #5a5a5a;
+        }
+        .furniture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .furniture-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .furniture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        }
+        .img-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #faf9f8;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            min-height: 180px;
+            overflow: hidden;
+        }
+        .furniture-card img {
+            max-width: 80%;
+            max-height: 160px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: block;
+        }
+        .furniture-card:hover img {
+            transform: scale(1.08);
+        }
+        .product-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .product-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1e1e1e;
+            text-align: left;
+            flex: 1;
+        }
+        .price {
+            font-weight: 600;
+            color: #e67e22;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+        .buy-link {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .buy-link:hover {
+            background-color: #d35400;
+        }
+
+        /* ---------- BLOG SECTION – stacked text, BUTTONS LEFT-ALIGNED & SAME VERTICAL POSITION ---------- */
+        .heading {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            font-size: 2rem;
+        }
+        .jkbox {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .kbox, .kbox1, .kbox2 {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .kbox:hover, .kbox1:hover, .kbox2:hover {
+            transform: translateY(-6px);
+        }
+        .blog1, .blog2, .blog3 {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-text {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .uu1, .uu4, .uu7 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .uu2, .uu5, .uu8 {
+            color: #5a5a5a;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .uu3, .uu6, .uu9 {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            white-space: nowrap;
+            width: fit-content;
+            font-size: 0.9rem;
+            align-self: flex-start;    /* left-aligned */
+            margin-top: auto;           /* pushes button to bottom */
+        }
+        .uu3:hover, .uu6:hover, .uu9:hover {
+            background-color: #d35400;
+        }
+
+        /* ---------- ABOUT SECTION ---------- */
+        .About {
+            max-width: 1200px;
+            margin: 4rem auto;
+            background-color: #f8f9fa;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        .jt {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 20px;
+        }
+        .brv {
+            flex: 1;
+            padding: 1rem;
+        }
+        .brv h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        /* ---------- TESTIMONIAL ---------- */
+        .er1 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0 1rem;
+        }
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .testimonial-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid #e67e22;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .testimonial-text {
+            font-size: 1rem;
+            color: #333;
+            max-width: 500px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        .testimonial-name {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #e67e22;
+        }
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .slider-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.2rem;
+        }
+        .slider-btn:hover {
+            background: #d35400;
+        }
+
+        /* ---------- CONTACT SECTION (form + map row) ---------- */
+        .contact_section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 3rem 2rem;
+        }
+        .contact_section .heading_container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact_section .heading_container h2 {
+            font-size: 2.2rem;
+            color: #2c2c2c;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .contact_section .heading_container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #e67e22;
+        }
+        .contact-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .contact_form_container {
+            flex: 1;
+            min-width: 260px;
+        }
+        .map_container {
+            flex: 1;
+            min-width: 260px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            height: auto;
+            min-height: 380px;
+        }
+        .map {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .contact_form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .contact_form input, .contact_form textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: #f8f9fa;
+        }
+        .contact_form textarea {
+            border-radius: 30px;
+            min-height: 120px;
+        }
+        .contact_form .btn_submit {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: fit-content;
+            white-space: nowrap;
+        }
+        .contact_form .btn_submit:hover {
+            background: #d35400;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer_section {
+            background: linear-gradient(90deg, #1f1f2e 0%, #1a1a28 100%);
+            color: #c4c4d4;
+            padding: 4rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        .footer_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+        .footer_col h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        .footer_col h4::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background: #e67e22;
+        }
+        .footer_col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer_col ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer_col ul li a {
+            color: #b0b0c0;
+            text-decoration: none;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .footer_col ul li a:hover {
+            color: #e67e22;
+            padding-left: 5px;
+        }
+        .contact_info li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+        .contact_info li i {
+            width: 25px;
+            color: #e67e22;
+        }
+        .social_icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .social_icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            color: #fff;
+            transition: 0.3s;
+        }
+        .social_icons a:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+        .newsletter_form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .newsletter_form input {
+            padding: 0.8rem 1rem;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .newsletter_form input::placeholder {
+            color: #aaa;
+        }
+        .newsletter_form button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .newsletter_form button:hover {
+            background: #d35400;
+        }
+        .footer_bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem;
+        }
+
+        /* ---------- BACK TO TOP ---------- */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #e67e22;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #d35400;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE (3→2→1 columns for furniture, blog remains stacked) ---------- */
+        @media screen and (max-width: 900px) {
+            .furniture-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .furniture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .link {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: white;
+                width: 80%;
+                height: calc(100vh - 70px);
+                box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                align-items: flex-start;
+            }
+            .link.active {
+                left: 0;
+            }
+            .box {
+                flex-direction: column;
+                text-align: center;
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            .hero-content .h2 {
+                font-size: 1.8rem;
+            }
+            .About {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+            .map_container {
+                min-height: 280px;
+            }
+            .footer_container {
+                text-align: center;
+            }
+            .footer_col h4::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .contact_info li {
+                justify-content: center;
+            }
+            .social_icons {
+                justify-content: center;
+            }
+            .product-details {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .product-name {
+                text-align: center;
+                flex: 0 0 100%;
+                margin-bottom: 0.3rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .hero-content .h2 {
+                font-size: 1.5rem;
+            }
+            .img-wrapper {
+                min-height: 140px;
+            }
+            .furniture-card img {
+                max-height: 130px;
+            }
+            .btn, .btn1 {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navv">
+        <div class="nav">
+            <div class="tittle">
+                <h1>EDGECUT</h1>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="link" id="navLinks">
+                <a href="#">Home</a>
+                <a href="#">Furniture</a>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="login">
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="box">
+        <div class="hero-content">
+            <h2 class="h2">For All kind of furniture needs</h2>
+            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sapiente eligendi possimus ea quasi tenetur dolor reiciendis, quibusdam est eius consectetur nostrum similique autem explicabo rem in obcaecati sint quo.</p>
+            <div class="btn-group">
+                <button class="btn" id="contactBtn">Contact us</button>
+                <button class="btn1" id="aboutBtn">About us</button>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img class="img" src="./images/slider-img.png" alt="Furniture showcase">
+        </div>
+    </div>
+
+    <!-- Furniture Section – horizontal row -->
+    <div class="scndhed">
+        <h1>OUR FURNITURE</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, molestiae officiis possimus tempora eveniet nisi?</p>
+    </div>
+    <div class="furniture-grid">
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f1.png" alt="Brown chair"></div>
+            <div class="product-details">
+                <span class="product-name">Brown chair design</span>
+                <span class="price">$100.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f2.png" alt="Double bed"></div>
+            <div class="product-details">
+                <span class="product-name">DOUBLE BED DESIGN</span>
+                <span class="price">$200.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f3.png" alt="House chair"></div>
+            <div class="product-details">
+                <span class="product-name">HOUSE CHAIR DESIGN</span>
+                <span class="price">$200.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f4.png" alt="Brown table"></div>
+            <div class="product-details">
+                <span class="product-name">BROWN TABLE DESIGN</span>
+                <span class="price">$100.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f5.png" alt="Blue chair"></div>
+            <div class="product-details">
+                <span class="product-name">BLUE CHAIR DESIGN</span>
+                <span class="price">$200.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+        <div class="furniture-card">
+            <div class="img-wrapper"><img src="./images/f6.png" alt="Brown table 2"></div>
+            <div class="product-details">
+                <span class="product-name">BROWN TABLE DESIGN</span>
+                <span class="price">$200.00</span>
+                <a href="#" class="buy-link">BUY NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <div class="About">
+        <div class="about-img">
+            <img class="jt" src="./images/slider-img.png" alt="about">
+        </div>
+        <div class="brv">
+            <h1>ABOUT US</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium consectetur non neque sint fugit! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos labore perspiciatis vitae.</p>
+            <button class="btn" id="aboutMoreBtn" style="margin-top: 20px;">Read More</button>
+        </div>
+    </div>
+
+    <!-- Latest Blogs – buttons now left-aligned & same vertical position -->
+    <div class="heading">
+        <h2>latest blogs</h2>
+    </div>
+    <div class="jkbox">
+        <div class="kbox">
+            <img class="blog1" src="./images/b1.jpg" alt="blog">
+            <div class="blog-text">
+                <p class="uu1">Look even slightly believable. If you are looking beautiful.</p>
+                <p class="uu2">alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <button class="uu3">Read More</button>
+            </div>
+        </div>
+        <div class="kbox1">
+            <img class="blog2" src="./images/b2.jpg" alt="blog">
+            <div class="blog-text">
+                <p class="uu4">Anything embarrassing hidden in the middle</p>
+                <p class="uu5">alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <button class="uu6">Read More</button>
+            </div>
+        </div>
+        <div class="kbox2">
+            <img class="blog3" src="./images/b3.jpg" alt="blog">
+            <div class="blog-text">
+                <p class="uu7">Molestias magni natus dolores odio commodi. Quaerat!</p>
+                <p class="uu8">alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                <button class="uu9">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <h2 class="er1">Testimonial</h2>
+    <div class="testimonial-slider">
+        <div class="testimonial-card">
+            <img class="testimonial-img" src="./images/client.jpg" alt="client">
+            <p class="testimonial-text" id="testimonialText">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, sunt. Fuga consequuntur dolorum quis pariatur maxime aliquid reprehenderit accusamus nostrum!"</p>
+            <p class="testimonial-name" id="testimonialName">— Olivia Brown</p>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn" id="prevTesti"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn" id="nextTesti"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Contact + Map -->
+    <section class="contact_section" id="contact">
+        <div class="heading_container">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-row">
+            <div class="contact_form_container">
+                <form class="contact_form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" placeholder="Phone Number" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="btn_submit">SEND</button>
+                </form>
+            </div>
+            <div class="map_container">
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.905284828694!2d-0.123456!3d51.500729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzAyLjYiTiAwwrAwNyc0NC4yIlc!5e0!3m2!1sen!2suk!4v1640000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer_section">
+        <div class="footer_container">
+            <div class="footer_col">
+                <h4>EDGECUT</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="social_icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer_col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Furniture</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer_col">
+                <h4>Contact Info</h4>
+                <ul class="contact_info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Design Street, NY 10001</li>
+                    <li><i class="fas fa-phone-alt"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> hello@edgecut.com</li>
+                </ul>
+            </div>
+            <div class="footer_col">
+                <h4>Newsletter</h4>
+                <form class="newsletter_form" id="newsletterFooter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>&copy; 2026 EDGECUT — Premium Furniture. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.link a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+        // Buy now
+        document.querySelectorAll('.buy-link').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); alert('✨ Item added to cart!'); }));
+
+        // Hero & About buttons
+        document.getElementById('contactBtn')?.addEventListener('click', () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('aboutBtn')?.addEventListener('click', () => document.querySelector('.About')?.scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('aboutMoreBtn')?.addEventListener('click', () => alert('We craft premium sustainable furniture since 2012.'));
+
+        // Blog read more (all buttons now left-aligned & same vertical position)
+        document.querySelectorAll('.uu3, .uu6, .uu9').forEach(btn => btn.addEventListener('click', () => alert('📖 Full blog article coming soon!')));
+
+        // Testimonial carousel
+        const testimonials = [
+            { text: "Absolutely love the quality! The double bed transformed my bedroom. Fast delivery and excellent craftsmanship.", name: "— Sarah Johnson" },
+            { text: "Brown chair design exceeded my expectations. Very comfortable and modern. Will definitely buy again.", name: "— Michael Chen" },
+            { text: "EdgeCut offers premium furniture at affordable prices. The customer support is fantastic!", name: "— Emily Rodriguez" }
+        ];
+        let currentIndex = 0;
+        const testiText = document.getElementById('testimonialText');
+        const testiName = document.getElementById('testimonialName');
+        const prevBtn = document.getElementById('prevTesti');
+        const nextBtn = document.getElementById('nextTesti');
+        function updateTestimonial() { testiText.innerText = `"${testimonials[currentIndex].text}"`; testiName.innerText = testimonials[currentIndex].name; }
+        if (nextBtn) nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % testimonials.length; updateTestimonial(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length; updateTestimonial(); });
+
+        // Back to top
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backBtn.classList.toggle('show', window.scrollY > 400));
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Smooth scroll navigation
+        document.querySelectorAll('.link a, .login a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const text = this.innerText.toLowerCase();
+                if (text === 'contact us') { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }
+                else if (text === 'home') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+                else if (text === 'furniture') { e.preventDefault(); document.querySelector('.furniture-grid')?.scrollIntoView({ behavior: 'smooth' }); }
+                else if (text === 'about') { e.preventDefault(); document.querySelector('.About')?.scrollIntoView({ behavior: 'smooth' }); }
+                else if (text === 'blog') { e.preventDefault(); document.querySelector('.jkbox')?.scrollIntoView({ behavior: 'smooth' }); }
+                else if (text === 'login') { e.preventDefault(); alert('🔐 Demo login: Explore our exclusive collection!'); }
+            });
+        });
+
+        // Forms
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent.');
+            e.target.reset();
+        });
+        document.getElementById('newsletterFooter')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+            e.target.reset();
+        });
+        window.addEventListener('resize', () => { if (window.innerWidth > 768) navLinks.classList.remove('active'); });
+    </script>
+</body>
+</html>
